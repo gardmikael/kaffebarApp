@@ -120,7 +120,7 @@ class ItemController extends Controller
         $this->validate($request, array(
             'price' => 'required|numeric|min:0,01',
         ));
-        $sales_item = SalesItem::findOrFail($item->id);
+        $sales_item = SalesItem::firstOrNew(['item_id' => $item->id]);
         $sales_item->price = $request->price;
         $sales_item->save();
       }else{

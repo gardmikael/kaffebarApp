@@ -16,8 +16,8 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 50);
-            $table->string('img_path', 100)->nullable();
-            $table->string('item_group', 50); 
+            $table->string('img_path', 100)->nullable()->default('items_img/default.png');
+            $table->string('item_group', 50);
             $table->timestamps();
         });
     }
