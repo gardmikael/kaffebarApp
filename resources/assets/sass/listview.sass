@@ -1,0 +1,42 @@
+.product-list
+  list-style-type: none
+  padding: 0
+  display: flex
+  flex-wrap: wrap
+  .product
+    margin-bottom: 5px
+    .box
+      width: 180px
+      background-color: white
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
+      display: inline-block
+      margin: 0 10px 0 0
+      position: relative
+      img
+        width: 180px
+        max-height: 135px
+      i
+        width: 40px
+        height: 40px
+        background: $primary-lighter
+        color: white
+        border-radius: 25px
+        text-align: center
+        line-height: 40px
+        font-size: 1.4rem
+        position: absolute
+        right: 10px
+        top: 115px
+        box-shadow: 0 0 4px 2px rgba(80, 80, 80, 0.1)
+        cursor: pointer
+        transition: all 0.3s
+        &:hover
+          transform: scale(1.1)
+      h2, p
+        margin-left: 20px
+        text-overflow: ellipsis
+        overflow: hidden
+      h2
+        font-size: 18px
+      p
+        font-size: 12px
