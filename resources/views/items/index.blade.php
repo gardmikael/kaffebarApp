@@ -26,7 +26,7 @@
                 </form>
               </div>
               <div class="col-sm-6">
-                <!--
+                <!-- REMOVED delete-button. See Readme
                 <form action="{{route('items.destroy', $item->id)}}" method="post">
                   {{ csrf_field() }}
                   {{ method_field('delete') }}

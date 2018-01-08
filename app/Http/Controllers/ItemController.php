@@ -84,7 +84,6 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-      //dd($item);
       return view('items.edit')->withItem($item);
     }
 
@@ -139,8 +138,10 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
+      /* NOT implemented
       $item->delete();
       Session::flash('success', 'Varen ble slettet.');
       return redirect()->route('items.index');
+      */
     }
 }

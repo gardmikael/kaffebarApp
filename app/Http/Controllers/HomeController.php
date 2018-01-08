@@ -15,10 +15,12 @@ class HomeController extends Controller
 {
   public function index()
   {
-      $drinkItems = Item::where('item_group', '=', 'drikke')->join('sales_items', 'items.id', '=', "sales_items.item_id")->get();
-
-      $besideItems = Item::where('item_group', '=', 'tillegg')->join('sales_items', 'items.id', '=', "sales_items.item_id")->get();
-
+      $drinkItems = Item::where('item_group', '=', 'drikke')
+      ->join('sales_items', 'items.id', '=', "sales_items.item_id")
+      ->get();
+      $besideItems = Item::where('item_group', '=', 'tillegg')
+      ->join('sales_items', 'items.id', '=', "sales_items.item_id")->
+      get();
       $freeItems = DB::table("items")->select('*')
             ->whereNotIn('id',function($query){
                $query->select('item_id')->from('sales_items');
@@ -30,8 +32,6 @@ class HomeController extends Controller
   {
     $validator = Validator::make($request->all(), [
       'cart.*.id' => 'required|integer|exists:items,id',
-      //'cart.*.name' => 'required|string',
-      //'cart.*.price' => 'required|integer',
       'cart.*.quantity' => 'required|integer|min:1'
     ]);
     $receipt = [];

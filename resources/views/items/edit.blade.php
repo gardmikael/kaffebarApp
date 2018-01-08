@@ -58,9 +58,7 @@
         <div class="col-md-3 img-container">
           <img src="{{asset("storage/$item->img_path")}}" alt="">
         </div>
-
       </div><!--end first row -->
-
 
       <div class="row">
         <div class="col-md-4">
@@ -106,7 +104,6 @@ checkbox.on('click', function() {
     optionalBlock.find('input').attr('required', false);
   }
 })
-
 
 $(document).ready( function() {
 
