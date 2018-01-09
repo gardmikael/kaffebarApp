@@ -5,9 +5,6 @@
 
 <title>KaffebarApp | @yield('title')</title>
 
-<!-- FONTS -->
-<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
-
 <!-- Kaffebar CSS -->
 <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
 

@@ -33,7 +33,6 @@
               <option selected="true" disabled="disabled">Velg en varegruppe</option>
                 <option value="drikke" @if($item->item_group == 'drikke' ) selected @endif>Drikke</option>
                 <option value="tillegg" @if($item->item_group == 'tillegg' ) selected @endif>Tillegg</option>
-                <option value="annet" @if($item->item_group == 'annet' ) selected @endif>Annet</option>
             </select>
           </div>
         </div>
@@ -88,45 +87,12 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
-
-checkbox = $('#sales-item-bool'),
-optionalBlock = $('#sales-item-atr');
-
-optionalBlock.hide();
-
-checkbox.on('click', function() {
-  if($(this).is(':checked')) {
-    optionalBlock.show();
-    optionalBlock.find('input').attr('required', true);
-  } else {
-    optionalBlock.hide();
-    optionalBlock.find('input').attr('required', false);
-  }
-})
-
-$(document).ready( function() {
-
-  if(checkbox.is(':checked')){
-    optionalBlock.show();
-  }
-
-  $(document).on('change', ':file', function() {
-    var input = $(this),
-    numFiles = input.get(0).files ? input.get(0).files.length : 1,
-    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-    input.trigger('fileselect', [numFiles, label]);
+  <script type="text/javascript" src="{{ URL::asset('js/stock.js') }}"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    if(checkbox.is(':checked')){
+      optionalBlock.show();
+    }
   });
-  $(':file').on('fileselect', function(event, numFiles, label) {
-      var input = $(this).parents('.input-group').find(':text'),
-          log = numFiles > 1 ? numFiles + ' filer valgt' : label;
-      if( input.length ) {
-          input.val(log);
-      } else {
-          if( log ) alert(log);
-      }
-  });
-});
-
-</script>
+  </script>
 @endsection

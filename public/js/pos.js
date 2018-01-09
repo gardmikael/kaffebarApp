@@ -5,7 +5,8 @@ Vue.component('product', {
       type: String
     },
     price: {
-      type: Number
+      type: Number,
+      default: 0
     },
    imgPath: {
      type: String

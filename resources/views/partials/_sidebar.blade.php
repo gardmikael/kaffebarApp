@@ -24,21 +24,6 @@
         <li><a href="{{ route('items.create') }}">Registrer ny vare</a></li>
       </ul>
     </li>
-
-    <!--
-    <li>
-      <a href="#">
-        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-          Kontakt
-      </a>
-    </li>
-    -->
   </ul>
 
 </nav>
-
-<!-- Page Content Holder -->
-<div id="content">
-    @include('partials._messages')
-    @yield('content')
-</div>

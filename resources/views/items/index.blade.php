@@ -10,7 +10,7 @@
     </div>
     <ul class="product-list">
       @foreach ($items as $item)
-        <product :show-add-button="false" name="{{$item->name}}" :price="{{$item->sales_item->price}}" img-path="{{asset("storage/$item->img_path")}}" @add-product="addItem({{$item->id}},'{{$item->name}}',{{$item->sales_item->price}})">
+        <product :show-add-button="false" name="{{$item->name}}" :price="{{count($item->sales_item) ? $item->sales_item->price : 0 }}" img-path="{{asset("storage/$item->img_path")}}" @add-product="addItem({{$item->id}},'{{$item->name}}', {{count($item->sales_item) ? $item->sales_item->price : 0 }} )">
           <template slot="button"><a class="btn btn-primary btn-xs" href="{{route('items.edit', $item->id)}}">Endre</a></template>
         </product>
       @endforeach

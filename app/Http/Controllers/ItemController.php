@@ -45,7 +45,7 @@ class ItemController extends Controller
       // Validate data
       $this->validate($request, array(
           'item_name' => 'required|string|unique:items,name',
-          'item_group' => 'required|string|in:drikke,tillegg,annet'
+          'item_group' => 'required|string|in:drikke,tillegg'
       ));
 
       $item = new Item;
@@ -100,7 +100,7 @@ class ItemController extends Controller
       // Validate data
       $this->validate($request, array(
           'item_name' => 'required|string',
-          'item_group' => 'required|string'
+          'item_group' => 'required|string|in:drikke,tillegg'
       ));
 
       $item->name = $request->item_name;
