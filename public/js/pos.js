@@ -19,7 +19,7 @@ Vue.component('product', {
   <li class="product">
     <div class="box">
       <img :src="imgPath"/>
-      <i v-show='showAddButton' class="fa fa-plus" @click="$emit('add-product')"></i>
+      <i v-show='showAddButton' class="fa fa-plus" @click="$emit('addproduct')"></i>
       <h2>{{name}}</h2>
       <p>{{price}} <span>NOK</span></p>
       <div class="row btn-group">
@@ -48,8 +48,6 @@ var app = new Vue({
         }else{
             this.items.push({id: item_id, name: item_name, price: item_price, quantity: 1});
         }
-        this.calculateTotal(this.items);
-
       },
       removeItem: function(item_id){
         if(this.productExists(item_id)){
@@ -63,7 +61,6 @@ var app = new Vue({
           }
           item.quantity -= 1;
         }
-        this.calculateTotal(this.items);
       },
       productExists: function(item_id){
         var productExists = false;
