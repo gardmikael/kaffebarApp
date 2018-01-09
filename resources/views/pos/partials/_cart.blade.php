@@ -18,7 +18,7 @@
       </tr>
     </tfoot>
 
-    <tbody>
+    <tbody>      
       <tr v-cloak v-for="item in items">
         <td>@{{item.quantity}}</td>
         <td>@{{item.name}}</td>

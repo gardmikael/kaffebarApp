@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'POS')
-
 @section('content')
 
 <!-- Header -->

@@ -1,7 +1,5 @@
 @extends('layouts.main')
-
 @section('title', 'Alle varer')
-
 @section('content')
 
 <!-- Header -->
@@ -12,35 +10,12 @@
     </div>
     <ul class="product-list">
       @foreach ($items as $item)
-        <li class="product">
-          <div class="box">
-            <img src='{{ asset("storage/$item->img_path")}}'/>
-            <h2>{{$item->name}}</h2>
-            <p>{{$item->item_group}}</p>
-            <p>{{$item->sales_item->price or "-"}} <span>NOK</span></p>
-            <div class="row btn-group">
-              <div class="col-sm-6">
-                <form action="{{route('items.edit', $item->id)}}" method="get">
-                  {{ csrf_field() }}
-                  <button class="btn btn-primary btn-xs">Endre</button>
-                </form>
-              </div>
-              <div class="col-sm-6">
-                <!-- REMOVED delete-button. See Readme
-                <form action="{{route('items.destroy', $item->id)}}" method="post">
-                  {{ csrf_field() }}
-                  {{ method_field('delete') }}
-                  <button class="btn btn-danger btn-xs">Slett</button>
-                </form>
-                -->
-              </div>
-            </div>
-          </div>
-        </li>
+        <product :show-add-button="false" name="{{$item->name}}" :price="{{$item->sales_item->price}}" img-path="{{asset("storage/$item->img_path")}}" @add-product="addItem({{$item->id}},'{{$item->name}}',{{$item->sales_item->price}})">
+          <template slot="button"><a class="btn btn-primary btn-xs" href="{{route('items.edit', $item->id)}}">Endre</a></template>
+        </product>
       @endforeach
     </ul>
   </div>
-
 </div>
 
 @endsection

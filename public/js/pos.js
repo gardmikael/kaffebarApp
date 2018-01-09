@@ -1,4 +1,35 @@
 const token = $("meta[name='csrf-token']").attr('content');
+Vue.component('product', {
+  props: {
+    name: {
+      type: String
+    },
+    price: {
+      type: Number
+    },
+   imgPath: {
+     type: String
+   },
+    showAddButton: {
+      type: Boolean
+    }
+  },
+  template: `
+  <li class="product">
+    <div class="box">
+      <img :src="imgPath"/>
+      <i v-show='showAddButton' class="fa fa-plus" @click="$emit('add-product')"></i>
+      <h2>{{name}}</h2>
+      <p>{{price}} <span>NOK</span></p>
+      <div class="row btn-group">
+        <div class="col-sm-6">
+          <slot name="button"></slot>
+        </div>
+      </div>
+    </div>
+  </li>
+  `,
+});
 
 var app = new Vue({
   el: '#content',
